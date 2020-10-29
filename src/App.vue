@@ -38,4 +38,24 @@ body {
   font-size: 14px;
   color: #242b37;
 }
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-to,
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-enter-active {
+  transition: opacity 0.4s;
+}
+
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-leave-active {
+  transition: opacity 0.4s;
+}
 </style>

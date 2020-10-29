@@ -1,10 +1,15 @@
 <template>
   <div class="c-job-filter">
-    <div class="c-job-filter__container">
+    <transition-group
+      name="fade"
+      tag="div"
+      class="c-job-filter__container"
+      appear
+    >
       <div v-for="filter in filters" v-bind:key="filter">
         <RemoveableTag :text="filter" @removeFilter="removeFilter" />
       </div>
-    </div>
+    </transition-group>
     <div class="c-job-filter__clear" @click="clearFilters">
       Clear
     </div>

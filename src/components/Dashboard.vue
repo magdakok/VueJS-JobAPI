@@ -2,21 +2,23 @@
   <div class="c-dashboard">
     <div class="c-dashboard__header"></div>
     <div class="c-dashboard__container">
-      <div v-if="filters.length">
+      <transition name="fade" appear v-if="filters.length">
         <JobFilter
           @clearFilters="clearFilters"
           :filters="filters"
           @removeFilter="removeFilter"
         />
+      </transition>
+      <transition-group name="fade" tag="div" appear v-if="filters.length">
         <div v-for="job in filteredJobs" v-bind:key="job.id">
           <Job :job="job" @addFilter="addFilter" />
         </div>
-      </div>
-      <div v-else>
+      </transition-group>
+      <transition-group name="fade" tag="div" appear v-else>
         <div v-for="job in jobs" v-bind:key="job.id">
           <Job :job="job" @addFilter="addFilter" />
         </div>
-      </div>
+      </transition-group>
     </div>
   </div>
 </template>
