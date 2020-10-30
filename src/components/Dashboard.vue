@@ -4,8 +4,8 @@
     <div class="c-dashboard__container">
       <transition name="fade" appear v-if="filters.length">
         <JobFilter
-          @clearFilters="clearFilters"
           :filters="filters"
+          @clearFilters="clearFilters"
           @removeFilter="removeFilter"
         />
       </transition>
@@ -56,7 +56,11 @@ export default {
   },
   methods: {
     addFilter: function(newFilter) {
-      if (!this.filters.includes(newFilter)) {
+      if (
+        !this.filters
+          .map((v) => v.toLowerCase())
+          .includes(newFilter.toLowerCase())
+      ) {
         this.filters = [...this.filters, newFilter];
       }
     },
