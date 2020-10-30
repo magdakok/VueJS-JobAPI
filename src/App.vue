@@ -39,23 +39,26 @@ body {
   color: #242b37;
 }
 
-.fade-enter {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
+  transform: translateY(30px);
 }
 .fade-enter-to,
 .fade-leave {
   opacity: 1;
 }
 
-.fade-enter-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.4s;
-}
-
-.fade-leave-to {
-  opacity: 0;
 }
 
 .fade-leave-active {
-  transition: opacity 0.4s;
+  position: absolute;
+}
+
+.fade-move {
+  transition: transform 1s;
 }
 </style>
